@@ -1,1 +1,13 @@
-<p>quotes works!</p>
+<div>
+    <label>Select From {{dropDownByAuthor.length}} Authors</label><br/>
+    <select name="select name" (click)="onSelect($event)">
+        <option value = "">All</option>
+        <option *ngFor="let item of dropDownByAuthor" [value]="item">{{item}}</option>
+    </select>
+<h3>Quotes by {{filterValue === "" ? "All" : filterValue}} ({{quotes?.length}})</h3>
+<ol>
+    <li *ngFor="let quote of quotes">
+        <p class="quote">{{quote.quote}}</p>
+        <p class="author">&emsp;{{quote.author}}</p>
+    </li>
+</ol>
